@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+
+|--------------------------------------------------------------------------
+| Controller => PostsController
+|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+| Eloquent Model => Post
+|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+| Migration => create_posts_table
+|--------------------------------------------------------------------------
+*/
+
+/* php artisan make:model Post -mc 
+   The above command will make a 'Post' model, 'PostsController' and a migration file
+*/
+Route::get('/', 'PostsController@index');
+Route::get('/posts/{post}', 'PostsController@show');
