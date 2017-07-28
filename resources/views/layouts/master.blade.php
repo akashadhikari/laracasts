@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Blog Template for Bootstrap</title>
+    <title>My Blog</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -20,18 +20,39 @@
 
   <body>
 
-    
-
-    
+        
 
     @include('layouts.nav')
 
+    <div class="blog-header">
+
+      <div class="container">
+
+        <h1 class="blog-title">The Bootstrap Blog</h1>
+        
+        <p class="lead blog-description"> An example blog template.</p>
+
+      </div>
+
+    </div>
+
+      
+
      <div class="container">
-        @yield('content')
+
+      <div class="row">
+
+         @yield('content')
+
+         @include('layouts.sidebar')
+        
+      </div>
+       
      </div>
 
     @include('layouts.footer')
 
   </body>
+
 </html>
 
