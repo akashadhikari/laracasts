@@ -4,7 +4,7 @@ namespace App;
 
 class Post extends Model
 {
-	//For MassAssignmentException
+	// For MassAssignmentException
 
     // protected $fillable = ['title', 'body']
 

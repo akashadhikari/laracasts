@@ -8,6 +8,8 @@
 
 		<hr>
 
+		@include('layouts.errors')
+
 		<form method="POST" action="/posts">
 
 		{{ csrf_field() }}
@@ -28,9 +30,15 @@
 		    
 		  </div>
 
-		  <button type="submit" class="btn btn-primary">Publish</button>
+		  <div class="form-group">
+		  	
+		  	<button type="submit" class="btn btn-primary">Publish</button>
+
+		  </div>
 
 		</form>
+
+		
 
 	</div>
 	

@@ -29,10 +29,19 @@ class PostsController extends Controller
 
     public function store() {
 
+        // validating through server
+
+        $this->validate(request(), [
+
+            'title' => 'required',
+
+            'body' => 'required'
+
+            ]);
+
     	//create a new post using the request data
 
     	// $post = new Post;
-
 
     	// $post->title = request('title');
 
