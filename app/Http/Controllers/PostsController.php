@@ -11,19 +11,21 @@ class PostsController extends Controller
 
     public function index() {
 
-        //all posts
+        // all posts
 
-        $posts = Post::all();
+        $posts = Post::latest()->get();
+
+        // $posts = Post::orderBy('created_at', 'desc')->get();
 
     	return view('posts.index')->withPosts($posts);
 
     }
 
-    public function show($id) {
+    public function show(Post $post) {
 
-        //specific post with post $id
+        // ROUTE MODEL BINDING for specific post 
 
-        $post = Post::find($id);
+        // make sure to keep the variable name identical to route id -- here its /posts/{post}
 
     	return view('posts.show')->withPost($post);
 
@@ -47,11 +49,11 @@ class PostsController extends Controller
 
             ]);
 
-    	//create a new post using the request data
+    	// create a new post using the request data
 
     	Post::create(request(['title','body']));
 
-    	//redirect to home
+    	// redirect to home
     	
     	return redirect('/');
     	
