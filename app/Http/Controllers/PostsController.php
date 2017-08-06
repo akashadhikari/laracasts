@@ -11,15 +11,21 @@ class PostsController extends Controller
 
     public function index() {
 
+        //all posts
+
         $posts = Post::all();
 
     	return view('posts.index')->withPosts($posts);
 
     }
 
-    public function show() {
+    public function show($id) {
 
-    	return view('posts.show');
+        //specific post with post $id
+
+        $post = Post::find($id);
+
+    	return view('posts.show')->withPost($post);
 
     }
 
