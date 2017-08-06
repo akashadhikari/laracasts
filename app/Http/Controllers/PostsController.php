@@ -11,7 +11,9 @@ class PostsController extends Controller
 
     public function index() {
 
-    	return view('posts.index');
+        $posts = Post::all();
+
+    	return view('posts.index')->withPosts($posts);
 
     }
 
@@ -41,19 +43,7 @@ class PostsController extends Controller
 
     	//create a new post using the request data
 
-    	// $post = new Post;
-
-    	// $post->title = request('title');
-
-    	// $post->body = request('body');
-
-    	//you can also perform following
-
     	Post::create(request(['title','body']));
-
-    	//save it to the database
-
-    	// $post->save();
 
     	//redirect to home
     	

@@ -22,12 +22,17 @@
 |--------------------------------------------------------------------------
 | Migration => create_posts_table
 |--------------------------------------------------------------------------
+
 */
 
 /* php artisan make:model Post -mc 
    The above command will make a 'Post' model, 'PostsController' and a migration file
 */
+
 Route::get('/', 'PostsController@index');
+
 Route::get('/posts/create', 'PostsController@create');
+
 Route::post('/posts', 'PostsController@store');
+
 // Route::get('/posts/{post}', 'PostsController@show');
