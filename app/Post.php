@@ -9,4 +9,10 @@ class Post extends Model
     // protected $fillable = ['title', 'body']
 
     // protected $guarded doesn't allow the fields to get posted
+
+    public function comments() {
+
+    	return $this->hasMany(Comment::class);
+
+    }
 }
