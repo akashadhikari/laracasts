@@ -18,6 +18,10 @@ class Post extends Model
 
     public function addComment($body) {
 
+    	// $this->comments() -- collection of all comments associated with this post
+
+    	// $this->comments()->create() -- creates a new comment
+
     	$this->comments()->create(compact('body'));
 
     }

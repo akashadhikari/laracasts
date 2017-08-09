@@ -22,7 +22,7 @@
 
 				<strong>
 					
-					{{ $comment->created_at->diffForHumans() }}; &nbsp;
+					{{ $comment->created_at->diffForHumans() }}: &nbsp;
 
 				</strong>
 
@@ -37,6 +37,8 @@
 	</div>
 
 	<hr>
+
+	@include('layouts.errors')
 
 	{{-- Add a comment --}}
 
