@@ -6,7 +6,7 @@
 
 	<h1>{{$post->title}}</h1>
 
-	<p class="blog-post-meta">{{$post->created_at->toFormattedDateString()}} by <a href="#">Mark</a></p>
+	<p class="blog-post-meta">{{$post->created_at->toFormattedDateString()}} by <a href="#">Akash</a></p>
 
 	{{$post->body}}
 
@@ -33,6 +33,36 @@
 			@endforeach
 
 		</ul>
+		
+	</div>
+
+	<hr>
+
+	{{-- Add a comment --}}
+
+	<div class="card">
+
+		<div class="card-block">
+			
+			<form method="POST" action="/posts/{{ $post->id }}/comments">
+
+			{{ csrf_field() }}
+				
+				<div class="form-group">
+
+					<textarea name="body" placeholder="Your comment here." class="form-control"></textarea>
+					
+				</div>
+
+				<div class="form-group">
+
+					<button type="submit" class="btn btn-primary">Add comment</button>
+					
+				</div>
+
+			</form>
+
+		</div>
 		
 	</div>
 
