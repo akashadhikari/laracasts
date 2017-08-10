@@ -22,7 +22,9 @@
 
 				<strong>
 					
-					{{ $comment->created_at->diffForHumans() }}: &nbsp;
+					{{ $comment->created_at->makeMyTimeLookAwesome() }}: &nbsp;
+
+					{{-- diffForHumans() is renamed as makeMyTimeLookAwesome() to look like a badass :p --}}
 
 				</strong>
 

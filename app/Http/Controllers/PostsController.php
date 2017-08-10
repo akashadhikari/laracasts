@@ -12,7 +12,7 @@ class PostsController extends Controller
 
     public function index() {
 
-        // all posts
+        // all posts sorting latest
 
         $posts = Post::latest()->get();
 

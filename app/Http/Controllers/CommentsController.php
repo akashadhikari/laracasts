@@ -15,7 +15,7 @@ class CommentsController extends Controller
 
     	$this->validate(request(), [
 
-    		'body' => 'required|min:2'
+    		'body' => 'required|min:4'
     		
     		]);
 
