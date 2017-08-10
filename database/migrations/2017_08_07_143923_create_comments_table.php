@@ -18,6 +18,8 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
 
             $table->integer('post_id'); // association with the post
+            
+            $table->integer('user_id');
 
             $table->string('body'); // comment body
 
