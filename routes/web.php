@@ -29,6 +29,12 @@
    The above command will make a 'Post' model, 'PostsController' and a migration file
 */
 
+Route::get('/register', 'RegistrationController@create');
+
+Route::post('/register', 'RegistrationController@store');
+
+Route::get('/login', 'SessionsController@create');
+
 Route::get('/', 'PostsController@index');
 
 Route::get('/posts/create', 'PostsController@create');
