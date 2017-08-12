@@ -10,6 +10,15 @@ class PostsController extends Controller
 
 {
 
+    public function __construct() {
+
+        // setting up a constructor function
+
+        $this->middleware('auth')->except(['index', 'show']);
+
+    }
+
+
     public function index() {
 
         // all posts sorting latest
