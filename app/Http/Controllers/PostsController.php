@@ -12,7 +12,7 @@ class PostsController extends Controller
 
     public function __construct() {
 
-        // setting up a constructor function
+        // setting up a constructor function for auth middleware EXCEPT index and show methods
 
         $this->middleware('auth')->except(['index', 'show']);
 
@@ -61,7 +61,15 @@ class PostsController extends Controller
 
     	// create a new post by user_id using the request data
 
-    	Post::create(request(['title','body','user_id']));
+    	Post::create([
+
+            'title' => request('title'),
+
+            'body' => request('body'),
+
+            'user_id' => auth()->id()
+            
+            ]);
 
     	// redirect to home
     	

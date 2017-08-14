@@ -10,7 +10,11 @@
 
     </h2>
     
-    <p class="blog-post-meta">{{$post->created_at->toFormattedDateString()}} by <a href="#">Mark</a></p>
+    <p class="blog-post-meta">
+
+    {{$post->created_at->toFormattedDateString()}} by <a href="#">{{$post->user->name}}</a>
+
+    </p>
 
     {{$post->body}}
 
