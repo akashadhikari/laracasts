@@ -33,9 +33,9 @@ Route::get('/register', 'RegistrationController@create');
 
 Route::post('/register', 'RegistrationController@store');
 
-Route::get('/login', 'SessionsController@create')->name('login');
+Route::get('/login', 'LoginController@create')->name('login'); // giving a named route
 
-Route::get('/logout', 'SessionsController@destroy');
+Route::get('/logout', 'LoginController@destroy');
 
 Route::get('/', 'PostsController@index');
 

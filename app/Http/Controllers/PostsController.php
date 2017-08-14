@@ -59,9 +59,9 @@ class PostsController extends Controller
 
             ]);
 
-    	// create a new post using the request data
+    	// create a new post by user_id using the request data
 
-    	Post::create(request(['title','body']));
+    	Post::create(request(['title','body','user_id']));
 
     	// redirect to home
     	
