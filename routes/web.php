@@ -40,7 +40,6 @@ Route::get('/login', 'SessionsController@create')->name('login'); // giving a na
 
 Route::post('/login', 'SessionsController@store');
 
-
 Route::get('/logout', 'SessionsController@destroy');
 
 

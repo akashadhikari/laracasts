@@ -4,7 +4,7 @@
 
             <h4>About</h4>
 
-            <p>The Sky <em>Hey yo!</em> I code and I drink coffee.</p>
+            <p>Hey yo!<em> Its Sky!</em> Welcome to this little thingy. Happy reading!</p>
 
           </div>
 

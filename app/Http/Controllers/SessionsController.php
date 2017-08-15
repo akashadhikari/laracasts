@@ -11,7 +11,7 @@ class SessionsController extends Controller
 
         // setting up a constructor so tht only the guests can visit the login page
 
-        $this->middleware('guest')->except(['destroy']);
+        $this->middleware('guest', ['except' => 'destroy']);
 
     }
 
@@ -25,18 +25,18 @@ class SessionsController extends Controller
 
     	// attempt to authenticate the user
 
-    	if (!auth()->attempt(request(['email', 'password']))) {
+    	// if not, redirect back
+
+    	if (! auth()->attempt(request(['email', 'password']))) {
 
     		return back()->withErrors([
 
     			'message' => 'Please check your credentials.'
-    			
+
     			]);
     	}
 
-    	return redirect('home');
-
-    	// if not, redirect back
+    	return redirect()->home();
 
     	// if so, sign them in
 
