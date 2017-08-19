@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Post;
 
+use Carbon\Carbon;
+
 class PostsController extends Controller
 
 {
@@ -23,11 +25,41 @@ class PostsController extends Controller
 
         // all posts sorting latest
 
-        $posts = Post::latest()->get();
+        $posts = Post::latest();
+
+        // if we have request month and year -- use CARBON to convert number into month name
+
+        if($month = request('month')) {
+
+            $posts->whereMonth('created_at', Carbon::parse($month)->month);
+
+        }
+
+        if ($year = request('year')) {
+
+            $posts->whereYear('created_at', $year);
+
+        }
+
+        $posts = $posts->get();
+
+        // archives raw query
+
+        $archives = Post::selectRaw('year(created_at) as saal, monthname(created_at) as mahina, count(*) published')
+
+        ->groupBy('saal', 'mahina')
+
+        // RAW SQL: 'order by created_at desc' doesnt work coz we have groupBy class
+
+        ->orderByRaw('min(created_at) desc')
+
+        ->get()
+
+        ->toArray();
 
         // $posts = Post::orderBy('created_at', 'desc')->get();
 
-    	return view('posts.index')->withPosts($posts);
+    	return view('posts.index', compact('posts', 'archives'));
 
     }
 
