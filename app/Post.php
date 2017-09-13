@@ -30,4 +30,20 @@ class Post extends Model
     	$this->comments()->create(compact('body'));
 
     }
+
+    public static function archives() {
+
+        return static::selectRaw('year(created_at) as saal, monthname(created_at) as mahina, count(*) published')
+
+        ->groupBy('saal', 'mahina')
+
+        // RAW SQL: 'order by created_at desc' doesnt work coz we have groupBy class
+
+        ->orderByRaw('min(created_at) desc')
+
+        ->get()
+
+        ->toArray();
+
+    }
 }

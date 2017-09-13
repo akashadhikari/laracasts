@@ -45,43 +45,21 @@ class PostsController extends Controller
 
         // archives raw query
 
-        $archives = Post::selectRaw('year(created_at) as saal, monthname(created_at) as mahina, count(*) published')
-
-        ->groupBy('saal', 'mahina')
-
-        // RAW SQL: 'order by created_at desc' doesnt work coz we have groupBy class
-
-        ->orderByRaw('min(created_at) desc')
-
-        ->get()
-
-        ->toArray();
+        $archives = Post::archives();
 
         // $posts = Post::orderBy('created_at', 'desc')->get();
 
-    	return view('posts.index', compact('posts', 'archives'));
+    	return view('posts.index', compact('posts'));
 
     }
 
     public function show(Post $post) {
 
-        $archives = Post::selectRaw('year(created_at) as saal, monthname(created_at) as mahina, count(*) published')
-
-        ->groupBy('saal', 'mahina')
-
-        // RAW SQL: 'order by created_at desc' doesnt work coz we have groupBy class
-
-        ->orderByRaw('min(created_at) desc')
-
-        ->get()
-
-        ->toArray();
-
         // ROUTE MODEL BINDING for specific post 
 
         // make sure to keep the variable name identical to route id -- here its /posts/{post}
 
-    	return view('posts.show', compact('post', 'archives'));
+    	return view('posts.show', compact('post'));
 
     }
 
