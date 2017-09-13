@@ -14,7 +14,11 @@
 
             <ol class="list-unstyled">
 
+            @foreach($archives as $stats)
+
+            <li><a href="/?month={{$stats['mahina']}}&year={{$stats['saal']}}">{{ $stats['mahina'] . ' ' . $stats['saal'] }}</a></li>
             
+            @endforeach
           
             </ol>
 
