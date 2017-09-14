@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
 
     // service providers
-    
+
+    // view composer
+
     public function boot()
     {
         view()->composer('layouts.sidebar', function($view){
