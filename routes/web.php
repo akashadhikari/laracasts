@@ -13,6 +13,8 @@
 
 /*
 
+
+
 |--------------------------------------------------------------------------
 | Controller => PostsController
 |--------------------------------------------------------------------------
@@ -24,6 +26,18 @@
 |--------------------------------------------------------------------------
 
 */
+
+App::bind('App\Billing\Stripe', function(){
+
+	return new \App\Billing\Stripe(config('services.stripe.secret'));
+
+});
+
+$stripe= App::make('App\Billing\Stripe');
+
+// App::make can be replaced by 'resolve' helper function or simply 'app'
+
+dd($stripe);
 
 /* php artisan make:model Post -mc 
 
